@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\objectsinfo.o
+./debug\settings.o
+./debug\mainhandler.o
+./debug\settingswindow.o
+./debug\moc_mainwindow.o
+./debug\moc_objectsinfo.o
+./debug\moc_mainhandler.o
+./debug\moc_settingswindow.o
+);

@@ -1,14 +1,15 @@
 #include "mainwindow.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <QApplication>
-#include "QtSql"
+#include "mainhandler.h"
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
+    MainHandler mainHandler(&w);
 
     return a.exec();
 }

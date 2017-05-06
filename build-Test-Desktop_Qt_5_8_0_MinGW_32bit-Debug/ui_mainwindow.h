@@ -31,6 +31,7 @@ public:
     QLabel *lblObject;
     QPushButton *btnNext;
     QPushButton *btnPrev;
+    QPushButton *btnSettings;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -63,6 +64,9 @@ public:
         btnPrev = new QPushButton(centralWidget);
         btnPrev->setObjectName(QStringLiteral("btnPrev"));
         btnPrev->setGeometry(QRect(70, 30, 31, 23));
+        btnSettings = new QPushButton(centralWidget);
+        btnSettings->setObjectName(QStringLiteral("btnSettings"));
+        btnSettings->setGeometry(QRect(123, 30, 16, 16));
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -79,6 +83,7 @@ public:
         lblObject->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\">\320\234\320\276\321\201\320\272\320\262\320\260</p></body></html>", Q_NULLPTR));
         btnNext->setText(QApplication::translate("MainWindow", ">", Q_NULLPTR));
         btnPrev->setText(QApplication::translate("MainWindow", "<", Q_NULLPTR));
+        btnSettings->setText(QApplication::translate("MainWindow", "*", Q_NULLPTR));
     } // retranslateUi
 
 };

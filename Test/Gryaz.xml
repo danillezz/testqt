@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cityinfo>
+	<name>Gryazovets</name>
+	<characteristic>
+	<temp>15</temp>
+	<pressure>760</pressure>
+	<humidity>80</humidity>
+	<wind>10</wind>
+	<clouds>scattered clouds</clouds>
+	<sunset>10:00</sunset>
+	<sunrise>21:00</sunrise>
+	<date>09.05.2017</date>
+	<coords>36.00; 50.00</coords>
+	</characteristic>
+</cityinfo>

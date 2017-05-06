@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "database.h"
+#include "object.h"
+#include <QStandardItemModel>
+#include <settings.h>
+#include <objectsinfo.h>
+#include <settingswindow.h>
 
 
 namespace Ui {
@@ -19,12 +23,22 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    Database db;
-    QSqlQueryModel model;
+    QList <Object> CurObjectInfo;
     QTimer *timer;
-public slots:
+    int iterator;
+    QStandardItemModel model;
+    Settings settings;
+    SettingsWindow *sw;
+    int time;
+private slots:
     void next();
     void prev();
+public slots:
+    void onSettingsChanged();
+    void onShowSettings();
+    void onNewObjectData(const QList<Object> &NewInfo);
+signals:
+    void SettingsChange();
 };
 
 #endif // MAINWINDOW_H
