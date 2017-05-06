@@ -1,5 +1,6 @@
 #include "mainhandler.h"
-#include "objectsinfo.h"
+#include "networkjsonparser.h"
+#include "xmlparser.h"
 #include "mainwindow.h"
 
 #include <QApplication>
@@ -8,12 +9,14 @@
 MainHandler::MainHandler(MainWindow *view, QObject *parent) :
     QObject(parent),
     mView(view),
-    objinf(new ObjectsInfo)
+    jobj(new NetworkJSONParser),
+    xobj(new XMLParser)
 {
-    connect(objinf,&ObjectsInfo::NewObjectData,view,&MainWindow::onNewObjectData);
-    connect(view,&MainWindow::SettingsChange,objinf,&ObjectsInfo::onSettingsChanged);
+    connect(jobj,&NetworkJSONParser::NewObjectData,view,&MainWindow::onNewObjectData);
+    connect(xobj,&XMLParser::NewObjectDataXml,view,&MainWindow::onNewObjectData);
 }
 
 MainHandler::~MainHandler() {
-objinf->~ObjectsInfo();
+jobj->deleteLater();
+xobj->deleteLater();
 }

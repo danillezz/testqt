@@ -16,11 +16,6 @@ QList <ObjectParam> params;
 
 };
 
-struct ObjectSettings {
-int id;
-QString objname;
-QString engname;
-QString filename;
-};
+
 
 #endif // OBJECT_H

@@ -9,7 +9,6 @@
 #include "../../Test/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
-#include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
@@ -22,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[10];
-    char stringdata0[108];
+    QByteArrayData data[12];
+    char stringdata0[118];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,15 +37,18 @@ QT_MOC_LITERAL(2, 26, 0), // ""
 QT_MOC_LITERAL(3, 27, 4), // "next"
 QT_MOC_LITERAL(4, 32, 4), // "prev"
 QT_MOC_LITERAL(5, 37, 17), // "onSettingsChanged"
-QT_MOC_LITERAL(6, 55, 14), // "onShowSettings"
-QT_MOC_LITERAL(7, 70, 15), // "onNewObjectData"
-QT_MOC_LITERAL(8, 86, 13), // "QList<Object>"
-QT_MOC_LITERAL(9, 100, 7) // "NewInfo"
+QT_MOC_LITERAL(6, 55, 7), // "newtime"
+QT_MOC_LITERAL(7, 63, 8), // "newcount"
+QT_MOC_LITERAL(8, 72, 14), // "onShowSettings"
+QT_MOC_LITERAL(9, 87, 15), // "onNewObjectData"
+QT_MOC_LITERAL(10, 103, 6), // "Object"
+QT_MOC_LITERAL(11, 110, 7) // "NewInfo"
 
     },
     "MainWindow\0SettingsChange\0\0next\0prev\0"
-    "onSettingsChanged\0onShowSettings\0"
-    "onNewObjectData\0QList<Object>\0NewInfo"
+    "onSettingsChanged\0newtime\0newcount\0"
+    "onShowSettings\0onNewObjectData\0Object\0"
+    "NewInfo"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,9 +71,9 @@ static const uint qt_meta_data_MainWindow[] = {
  // slots: name, argc, parameters, tag, flags
        3,    0,   45,    2, 0x08 /* Private */,
        4,    0,   46,    2, 0x08 /* Private */,
-       5,    0,   47,    2, 0x0a /* Public */,
-       6,    0,   48,    2, 0x0a /* Public */,
-       7,    1,   49,    2, 0x0a /* Public */,
+       5,    2,   47,    2, 0x0a /* Public */,
+       8,    0,   52,    2, 0x0a /* Public */,
+       9,    1,   53,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -79,9 +81,9 @@ static const uint qt_meta_data_MainWindow[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    6,    7,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, 0x80000000 | 10,   11,
 
        0        // eod
 };
@@ -95,9 +97,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->SettingsChange(); break;
         case 1: _t->next(); break;
         case 2: _t->prev(); break;
-        case 3: _t->onSettingsChanged(); break;
+        case 3: _t->onSettingsChanged((*reinterpret_cast< const int(*)>(_a[1])),(*reinterpret_cast< const int(*)>(_a[2]))); break;
         case 4: _t->onShowSettings(); break;
-        case 5: _t->onNewObjectData((*reinterpret_cast< const QList<Object>(*)>(_a[1]))); break;
+        case 5: _t->onNewObjectData((*reinterpret_cast< const Object(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

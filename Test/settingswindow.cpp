@@ -6,23 +6,59 @@ SettingsWindow::SettingsWindow(QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
-    s.GetSettings(&model);
-        ui->tableView->setModel(&model);
-        ui->spinBox->setValue(s.time1);
-        ui->spinBox_2->setValue(s.time2);
-        ui->tableView->resizeColumnsToContents();
+
+    dbase=QSqlDatabase::addDatabase("QSQLITE");
+    dbase.setDatabaseName("Test.sqlite");
+    dbase.open();
+
+    model = new QSqlTableModel();
+    model->setTable("Objects");
+    model->select();
+
+    ui->tableView->setModel(model);
+
+    QSqlQuery qry;
+    qry.exec("select * from Times order by ID");
+    qry.next();
+        ui->spinBox->setValue(qry.value(2).toInt());
+    qry.next();
+        ui->spinBox_2->setValue(qry.value(2).toInt());
+
+    ui->tableView->resizeColumnsToContents();
     connect(ui->btnOk, SIGNAL(clicked()), this, SLOT(onOk()));
+
 }
 
 SettingsWindow::~SettingsWindow()
 {
+    dbase.close();
+    model->deleteLater();
     delete ui;
 }
 
 void SettingsWindow::onOk() {
- s.NewTimes(ui->spinBox->value(),ui->spinBox_2->value());
- emit SettingsChange();
+
+ QSqlQuery qry;
+    qry.exec("update Times set Value="+QString(ui->spinBox->value())+" where ID=1");
+    qry.exec("update Times set Value="+QString(ui->spinBox_2->value())+" where ID=2");
+    qry.exec("select * from Objects");
+    qry.first();
+ emit SettingsChange(ui->spinBox->value(), qry.record().count());
+    qry.clear();
+
  this->hide();
+
  }
+
+void SettingsWindow::Refresh() {
+
+    QSqlQuery qry;
+    qry.exec("select * from Times order by ID");
+    qry.next();
+        ui->spinBox->setValue(qry.value(2).toInt());
+    qry.next();
+        ui->spinBox_2->setValue(qry.value(2).toInt());
+
+}
 
 

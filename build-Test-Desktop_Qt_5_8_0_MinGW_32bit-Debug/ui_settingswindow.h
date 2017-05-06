@@ -52,9 +52,11 @@ public:
         spinBox = new QSpinBox(SettingsWindow);
         spinBox->setObjectName(QStringLiteral("spinBox"));
         spinBox->setGeometry(QRect(60, 250, 42, 22));
+        spinBox->setMinimum(1);
         spinBox_2 = new QSpinBox(SettingsWindow);
         spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
         spinBox_2->setGeometry(QRect(200, 250, 42, 22));
+        spinBox_2->setMinimum(1);
 
         retranslateUi(SettingsWindow);
 

@@ -4,9 +4,8 @@
 #include <QMainWindow>
 #include "object.h"
 #include <QStandardItemModel>
-#include <settings.h>
-#include <objectsinfo.h>
 #include <settingswindow.h>
+#include <QTimer>
 
 
 namespace Ui {
@@ -27,16 +26,17 @@ private:
     QTimer *timer;
     int iterator;
     QStandardItemModel model;
-    Settings settings;
+    int objectscount;
     SettingsWindow *sw;
     int time;
+
 private slots:
     void next();
     void prev();
 public slots:
-    void onSettingsChanged();
+    void onSettingsChanged(const int newtime, const int newcount);
     void onShowSettings();
-    void onNewObjectData(const QList<Object> &NewInfo);
+    void onNewObjectData(const Object &NewInfo);
 signals:
     void SettingsChange();
 };

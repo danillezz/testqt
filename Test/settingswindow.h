@@ -2,8 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include <QWidget>
-#include <QSqlTableModel>
-#include <settings.h>
+#include <QtSql>
 
 namespace Ui {
 class SettingsWindow;
@@ -16,14 +15,14 @@ class SettingsWindow : public QWidget
 public:
     explicit SettingsWindow(QWidget *parent = 0);
     ~SettingsWindow();
-
-private slots:
+    void Refresh();
+public slots:
     void onOk();
 signals:
-    void SettingsChange();
+    void SettingsChange(const int time, const int count);
 private:
-    Settings s;
-    QSqlTableModel model;
+    QSqlDatabase dbase;
+    QSqlTableModel *model;
     Ui::SettingsWindow *ui;
 };
 

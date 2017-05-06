@@ -1,12 +1,13 @@
 INPUT(
 ./release\main.o
 ./release\mainwindow.o
-./release\objectsinfo.o
-./release\settings.o
 ./release\mainhandler.o
 ./release\settingswindow.o
+./release\xmlparser.o
+./release\networkjsonparser.o
 ./release\moc_mainwindow.o
-./release\moc_objectsinfo.o
 ./release\moc_mainhandler.o
 ./release\moc_settingswindow.o
+./release\moc_xmlparser.o
+./release\moc_networkjsonparser.o
 );

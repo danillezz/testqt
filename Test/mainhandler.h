@@ -3,7 +3,8 @@
 #include <QObject>
 #include <object.h>
 
-class ObjectsInfo;
+class NetworkJSONParser;
+class XMLParser;
 class MainWindow;
 
 class MainHandler : public QObject
@@ -14,7 +15,8 @@ public:
     ~MainHandler();
 
 private:
-    ObjectsInfo *objinf;
+    XMLParser *xobj;
+    NetworkJSONParser *jobj;
     MainWindow *mView;
 
 };
